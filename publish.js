@@ -318,7 +318,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 }
 
                 itemsNav += '<li>' + linktoFn(item.longname, displayName.replace(/^module:/g, ''));
-                if (methods.length) {
+                if (!conf.default.hideMethodsInNav && methods.length) {
                     itemsNav += "<ul class='methods'>";
 
                     methods.forEach(function (method) {
