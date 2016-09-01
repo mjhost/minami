@@ -299,6 +299,10 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
             var methods = find({kind:'function', memberof: item.longname});
             var members = find({kind:'member', memberof: item.longname});
 
+            if(hasOwnProp.call(item, 'deprecated')){
+                return;
+            }
+
             if ( !hasOwnProp.call(item, 'longname') ) {
                 itemsNav += '<li>' + linktoFn('', item.name);
                 itemsNav += '</li>';
